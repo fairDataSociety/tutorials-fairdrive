@@ -1315,12 +1315,9 @@ Now open the control panel. To upload your dApp to the server, find the `Files` 
 
 Remember when we wrote our Login component, we set some environment variables in the `.env` file. The values that we set there were for the `FDP-Play` environment. But since we are deploying our dApp to a remote server, those values need to be changed.
 
-RPC Provider is automatically handled by our code in the Login component since we use Sepolia config when we build our dApp for production. But for the Bee node, we need to change the value in the `.env` file. There is a Bee node provided by the FDS that we can use for our dApp. Keep the value of Stamp ID the same, since it is patched by the server anyway. But it's important for our code to be in correct format. So the production `.env` file will be:
+RPC Provider is automatically handled by our code in the Login component since we use Sepolia config when we build our dApp for production. But for the Bee node, we need to change the value in the `.env` file. In order to do that, we need a Bee node hosted on a server. Deploying a Bee node to a server is easiest by using its Docker image. Check [this link](https://docs.ethswarm.org/docs/bee/installation/docker) for more information.
 
-```
-VITE_BEE_NODE_URL=https://bee-1.fairdatasociety.org
-VITE_POSTAGE_STAMP_ID=5e4bfd57e22fe9bf4dda8bb2a36d81419224900dabac2b06113e745b59b5bed9
-```
+Once when URL of your Bee node is ready, update it inside the `.env` file.
 
 Now we can build our dApp for production. Go back to your terminal and navigate to the root directory of our dApp. Then run:
 
@@ -1330,7 +1327,7 @@ npm run build
 
 This command will produce the `dist` directory.
 
-Now go back to your browser and the `infinityfree` page. Find the upload button. Just make sure that you opened the `htdocs` directory. Click the upload button and and select `Upload Folder` option. Select the generated `dist` folder and upload it.
+Now go back to your browser and the `infinityfree` page. Find the upload button. Just make sure that you opened the `htdocs` directory. Upload all files and folders from the `dist` directory to the `htdocs`.
 
 Now you should be able to access your dApp by using your subdomain and selected domain as your dApp URL.
 
